@@ -2,7 +2,7 @@ from .models import Users, ApiLog
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Users
@@ -10,7 +10,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                   'activated', 'ispro', 'isvalidpro', 'proterms', 'thermallabel', 'apikey', 'changepasswordtoken', 'created', 'modified', 'phone', 'remember_token', 'id_conekta_client', 'lockeddiscount')
 
 
-class ApiLogSerializer(serializers.HyperlinkedModelSerializer):
+class ApiLogSerializer(serializers.ModelSerializer):
+    iduser = UserSerializer(many=True)
 
     class Meta:
         model = ApiLog

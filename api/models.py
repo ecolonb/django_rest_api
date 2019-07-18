@@ -71,8 +71,8 @@ class Addresses(models.Model):
 
 
 class ApiLog(models.Model):
-    id = models.AutoField(db_column='id', primary_key=True) 
-    iduser = models.IntegerField(db_column='idUser')  # Field name made lowercase.
+    id = models.AutoField(db_column='id', primary_key=True)
+    iduser = models.ForeignKey('Users', models.DO_NOTHING, db_column='idUser') # Field name made lowercase.
     request = models.TextField()
     response = models.TextField()
     services = models.CharField(max_length=191)

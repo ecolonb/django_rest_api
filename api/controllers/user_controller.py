@@ -12,7 +12,8 @@ def login(request):
     username = request.POST.get('user', None)
     password = str(request.POST.get('password', ''))
     hash_str = hasher.sha1_encrypt(password)
-    res_compare = hasher.sha1_compare(hash_str, password)
+    res_compare = hasher.sha1_compare(
+        password, '20eabe5d64b0e216796e834f52d61fd0b70332fc')
     response = {
         "ok": True,
         "message": 'Hello world!',

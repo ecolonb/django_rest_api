@@ -12,5 +12,6 @@ urlpatterns = [
     path('users', views.UsersList.as_view()),
     path('log', views.ApiLogList.as_view()),
     path('hello', user_controller.hello),
+    path('test', views.test),
     path('login', user_controller.login)
 ]

@@ -1,5 +1,5 @@
 """
-WSGI config for rest_api_envio_click project.
+WSGI config for envio_click project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rest_api_envio_click.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'envio_click.settings')
 
 application = get_wsgi_application()

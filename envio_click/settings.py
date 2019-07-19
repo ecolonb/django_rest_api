@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'envio_click.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'stage_envio_click',
+        'NAME': 'envio_click',
         'USER': 'root',
-        'PASSWORD': 'root9091',
+        'PASSWORD': 'root123',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

@@ -53,8 +53,9 @@ def test(request):
         data.append({
             "id": user.iduser,
             "name": user.firstname,
-            "lastname": user.lastname
+            "lastname": user.lastname,
+            "apikey": user.apikey
         })
-    import ipdb
-    ipdb.set_trace()
+    # import ipdb
+    # ipdb.set_trace()
     return JsonResponse({"ok": True, "users": data})

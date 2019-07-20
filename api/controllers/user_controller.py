@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
-import api.utils.hasher as hasher
 from api.models import Users
+import envio_click.utils.hasher as hasher
 
 
 def hello(request):
@@ -33,3 +33,11 @@ def login(request):
         "apikey": apikey
     }
     return JsonResponse(response)
+
+
+@api_view(["POST"])
+def allUsers(request):
+    users_list = Users.objects.all()
+    # import ipdb
+    # ipdb.set_trace()
+    return JsonResponse({"ok": True}, status=201)

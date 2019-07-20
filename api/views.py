@@ -2,7 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, viewsets
-
+from rest_framework.decorators import api_view
 from .models import ApiLog, Users
 from .serializers import ApiLogSerializer, UserSerializer
 
@@ -43,10 +43,11 @@ class ApiLogList(generics.ListCreateAPIView):
         return respObj
 
 
-@csrf_exempt
+@api_view(["POST"])
 def test(request):
     users_list = Users.objects.all()
-    a = users_list.filter(iduser=20)
+    id_user = request.POST.get("iduser", 0)
+    a = users_list.filter(iduser=id_user)
     data = []
     for user in a:
         data.append({
@@ -54,6 +55,6 @@ def test(request):
             "name": user.firstname,
             "lastname": user.lastname
         })
-
+    import ipdb
+    ipdb.set_trace()
     return JsonResponse({"ok": True, "users": data})
-

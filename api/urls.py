@@ -13,5 +13,6 @@ urlpatterns = [
     path('log', views.ApiLogList.as_view()),
     path('hello', user_controller.hello),
     path('test', views.test),
+    path('users_list', user_controller.allUsers),
     path('login', user_controller.login)
 ]

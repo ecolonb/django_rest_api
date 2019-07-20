@@ -33,3 +33,11 @@ def login(request):
         "apikey": apikey
     }
     return JsonResponse(response)
+
+
+@api_view(["POST"])
+def allUsers(request):
+    users_list = Users.objects.all()
+    # import ipdb
+    # ipdb.set_trace()
+    return JsonResponse({"ok": True}, status=201)
